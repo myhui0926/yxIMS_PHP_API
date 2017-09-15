@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: hui
- * Date: 2017/9/12
- * Time: 22:19
+ * Date: 2017/9/16
+ * Time: 03:00
  */
 define('DB_HOST','localhost');
 define('DB_USER','root');
