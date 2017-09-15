@@ -70,13 +70,13 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     );
     if (empty($errors)){
         $q = "INSERT INTO users (user_job_number, user_type,department,username, user_mobile, user_email, user_pass, if_confirm) VALUES 
-  ($jn,'$ut','$ud','$un','$um','$ue',SHA1('$up'),'yes')";
+  ('$jn','$ut','$ud','$un','$um','$ue',SHA1('$up'),'yes')";
         $r = @mysqli_query($dbc,$q);
         if ($r){//插入成功
             $register_msg['reStatus'] = true;
             $register_msg['successMsg'][] = '注册成功！点击确认按钮登录。';
         }else{
-            $register_msg['errorMsg'][] = '注册失败！请重试。';
+            $register_msg['errorMsg'][] = '注册失败！请重试。可能的错误原因：工号、手机号码、电子邮件地址已存在。';
         }
     }else{
         $register_msg['errorMsg'][] = '注册失败！错误信息：';
@@ -86,5 +86,5 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     }
     echo json_encode($register_msg);
 }else{
-    echo "欢迎使用优选广告库存资源管理系统API！";
+    echo "欢迎使用优选广告库存资源管理系统用户注册API！请使用Ajax调用。";
 }
