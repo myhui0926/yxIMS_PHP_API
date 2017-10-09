@@ -110,4 +110,6 @@ function loginHandler($dataBase,$loginType,$loginValue,$userPass,$loginMsg){
         $loginMsg['errorMsg'][] = "账号或密码错误，请重试！";
         return $loginMsg;
     }
+    mysqli_free_result($r);
+    mysqli_close($dataBase);
 }
